@@ -18,12 +18,17 @@ export const dameTareas = (req, res) => {
             console.log('Error en la conexión');
         } else{
             //console.log(`Base de Datos Conectada ${database}`);
-            database.collection('tareas').find({}).toArray((error, result) =>{
-                if(error){
-                    console.log('Error en la conexión');
-                }else{
-                    res.render('tareas');
-                }
+            database.collection('tareas').find({}).toArray((err, result) =>{
+                // if(error){
+                //     console.log('Error en la conexión');
+                // }else{
+                //     res.render('tareas');
+                // }
+
+                if (err) throw err;
+                res.render('tareas', {
+                    results: result,
+                });
             })
         }
     });
