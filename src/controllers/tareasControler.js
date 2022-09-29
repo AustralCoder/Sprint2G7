@@ -69,24 +69,19 @@ export const eliminarTarea = (req, res) => {
         const database = db.db(process.env.DATABASE);
 
         if (error) {
-            console.log('Error en la conexión');
+            // console.log('Error en la conexión');
         } else{
-            
             const id = req.params.id;
             const ObjectId = mongodb.ObjectId
-            database.collection('tareas').deleteOne({_id: ObjectId(id)}, (error, result) =>{
-                if(error){
-                    console.log('Error en la conexión');
-                }else{
-                    console.log('Documento eliminado');
-                    res.json(result);
-                }
+            database.collection('tareas').deleteOne({_id: ObjectId(id)}, (err, result) =>{
+                if(err) throw err;
+                res.render('tareas')
             })
         }
     });
-}
-    
-    
+}    
+
+
     export const tareasId = (req, res) => {
         MongoClient.connect(process.env.MONGOLOCAL, (error, db) => {
 

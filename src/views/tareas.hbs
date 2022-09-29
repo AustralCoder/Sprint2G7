@@ -43,7 +43,7 @@
             <th>autor</th>
             <th>descripcion</th>
             <th>Importancia</th>
-            {{!-- <th>Borrar</th> --}}
+            <th>Borrar</th>
         </thead>
         <tbody>
             {{#each results}}
@@ -52,7 +52,7 @@
                 <td>{{this.autor}}</td>
                 <td>{{this.descripcion}}</td>
                 <td>{{this.nivel}}</td>
-                {{!-- <td><a href="./formulario/{{ this.id }}" id="borrar" onclick="borrar">Borrar</a></td> --}}
+                <td><a href="/tareas/{{ this._id }}">Borrar</a></td>
             </tr>
             {{/each}}
         </tbody>
