@@ -43,16 +43,18 @@
             <th>autor</th>
             <th>descripcion</th>
             <th>Importancia</th>
+            <th>Ver ID</th>
             <th>Borrar</th>
         </thead>
         <tbody>
             {{#each results}}
             <tr>
-                <td>{{this.titulo}}</td>
-                <td>{{this.autor}}</td>
-                <td>{{this.descripcion}}</td>
-                <td>{{this.nivel}}</td>
-                <td><a href="/tareas/{{ this._id }}">Borrar</a></td>
+                <td>{{titulo}}</td>
+                <td>{{autor}}</td>
+                <td>{{descripcion}}</td>
+                <td>{{nivel}}</td>
+                <td><a href="/tareas/{{_id}}">Ver ID</a></td>
+                <td><a href="/eliminar/{{_id}}">Borrar</a></td>
             </tr>
             {{/each}}
         </tbody>

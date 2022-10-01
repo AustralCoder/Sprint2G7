@@ -45,11 +45,11 @@ export const agregarTareas = (req, res) => {
             console.log('Error en la conexión');
         } else{
 
-            const { titulo, autor, descripcion, nivel } = req.body;
+            const { _id, titulo, autor, descripcion, nivel } = req.body;
             let dia = new Date();
             let fechaString = dia.toLocaleDateString();
             
-            database.collection('tareas').insertOne({titulo, autor, descripcion, nivel, fecha: fechaString}, (error, result) =>{
+            database.collection('tareas').insertOne({_id, titulo, autor, descripcion, nivel, fecha: fechaString}, (error, result) =>{
                 if(error){
                     console.log('Error en la conexión');
                 }else{
@@ -63,9 +63,7 @@ export const agregarTareas = (req, res) => {
 
 
 export const eliminarTarea = (req, res) => {
-
     MongoClient.connect(process.env.MONGOLOCAL, (error, db) => {
-
         const database = db.db(process.env.DATABASE);
 
         if (error) {
@@ -73,14 +71,13 @@ export const eliminarTarea = (req, res) => {
         } else{
             const id = req.params.id;
             const ObjectId = mongodb.ObjectId
-            database.collection('tareas').deleteOne({_id: ObjectId(id)}, (err, result) =>{
+            database.collection('tareas').deleteOne({_id: ObjectId(id)}, (err) =>{
                 if(err) throw err;
                 res.render('tareas')
             })
         }
     });
 }    
-
 
     export const tareasId = (req, res) => {
         MongoClient.connect(process.env.MONGOLOCAL, (error, db) => {
@@ -102,8 +99,7 @@ export const eliminarTarea = (req, res) => {
             }
         });
     }
-    
-    
+        
     
     // export const editarTarea = (req, res) => {
         
