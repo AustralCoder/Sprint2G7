@@ -1,0 +1,14 @@
+.verBorrar{
+    text-decoration: none;
+    color: rgb(63, 206, 50);
+}
+
+.verBorrar:hover{
+    color: rgb(252, 0, 0);
+    border: 1px solid rgb(252, 0, 0);
+}
+
+.grupo{
+    color: rgb(2, 192, 59);
+    font-size: 25px;
+}
